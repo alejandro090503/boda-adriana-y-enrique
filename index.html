@@ -513,6 +513,44 @@ body{
 .music-fab svg{width:22px;height:22px;fill:currentColor}
 .music-fab.playing .ic-play{display:none}
 .music-fab:not(.playing) .ic-pause{display:none}
+
+/* ── HOSPEDAJE ── */
+.hosp-grid{display:flex;flex-direction:column;gap:16px;max-width:420px;margin:28px auto 0}
+.hosp-card{background:var(--card);border:1px solid rgba(166,123,1,.15);border-radius:18px;padding:24px 22px;box-shadow:0 4px 16px rgba(166,123,1,.06);text-align:center}
+.hosp-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:var(--dark);margin-bottom:4px}
+.hosp-city{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.8;margin-bottom:16px}
+.btn-hosp{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:1.5px solid var(--accent);border-radius:50px;color:var(--accent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:.5px;text-decoration:none;background:transparent;transition:background .25s,color .25s}
+.btn-hosp:hover{background:var(--accent);color:#fff}
+.btn-hosp svg{width:15px;height:15px;fill:currentColor}
+
+/* ── NUESTRA HISTORIA 4 FASES ── */
+#historia{padding:72px 28px;text-align:center}
+.hist-timeline{max-width:480px;margin:36px auto 0;display:flex;flex-direction:column;gap:38px}
+.hist-fase{display:flex;flex-direction:column;align-items:center;gap:14px}
+.hist-foto{width:200px;height:200px;border-radius:50%;overflow:hidden;border:2px solid rgba(166,123,1,.3);box-shadow:0 10px 30px rgba(79,85,4,.15);background:rgba(166,123,1,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hist-foto img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hist-foto-placeholder{opacity:.35}
+.hist-fase-num{font-family:'Great Vibes',cursive;font-size:30px;color:var(--accent);line-height:1}
+.hist-fase-titulo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--dark)}
+.hist-fase-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;line-height:1.6;color:var(--text);max-width:320px}
+
+/* ── A TOMAR EN CUENTA ── */
+.cuenta-list{display:flex;flex-direction:column;gap:16px;max-width:420px;margin:28px auto 0;text-align:left}
+.cuenta-item{display:flex;align-items:flex-start;gap:16px}
+.cuenta-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center}
+.cuenta-txt{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.55;color:var(--text);padding-top:4px}
+
+/* ── CONTACTOS ── */
+#contactos{padding:72px 28px;text-align:center}
+.contactos-grid{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin:32px auto 0}
+.contacto-card{display:flex;flex-direction:column;align-items:center;gap:14px}
+.contacto-avatar{width:130px;height:130px;border-radius:50%;background:rgba(166,123,1,.1);border:2px solid rgba(166,123,1,.25);display:flex;align-items:center;justify-content:center}
+.contacto-avatar svg{width:70px;height:70px;fill:var(--accent);opacity:.85}
+.contacto-rol{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--accent)}
+.contacto-nombre{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--dark);margin-top:-6px}
+.btn-contacto{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--accent);border-radius:50px;color:#fff;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;text-decoration:none;transition:opacity .2s}
+.btn-contacto:hover{opacity:.85}
+.btn-contacto svg{width:15px;height:15px;fill:currentColor}
 </style>
 </head>
 <body>
@@ -773,6 +811,39 @@ body{
     </a>
   </section>
 
+  <!-- ── HOSPEDAJE ── -->
+  <section id="hospedaje" class="sec sec--surface" style="text-align:center">
+    <p class="eyebrow rv">Para tu comodidad</p>
+    <h2 class="script-title rv">Sugerencia de Hospedaje</h2>
+    <p class="historia-txt rv">Si vienes de fuera, te recomendamos estas opciones de hospedaje cercanas.</p>
+    <div class="hosp-grid rv">
+      <div class="hosp-card">
+        <div class="hosp-name">Hotel Quinta Rivera</div>
+        <div class="hosp-city">Actopan, Hidalgo</div>
+        <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Quinta+Rivera+Actopan+Hidalgo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Ver ubicación
+        </a>
+      </div>
+      <div class="hosp-card">
+        <div class="hosp-name">Hotel Convento</div>
+        <div class="hosp-city">Actopan, Hidalgo</div>
+        <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Convento+Actopan+Hidalgo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Ver ubicación
+        </a>
+      </div>
+      <div class="hosp-card">
+        <div class="hosp-name">Hotel Libertad</div>
+        <div class="hosp-city">Actopan, Hidalgo</div>
+        <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Libertad+Actopan+Hidalgo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Ver ubicación
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ── ORNAMENTO B ── -->
   <div class="ornament ornament--s2b rv">
     <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -897,6 +968,26 @@ body{
     </div>
   </section>
 
+  <!-- ── A TOMAR EN CUENTA ── -->
+  <section id="a-tomar-en-cuenta" class="sec sec--surface" style="text-align:center">
+    <p class="eyebrow rv">Detalles importantes</p>
+    <h2 class="script-title rv">A Tomar en Cuenta</h2>
+    <div class="cuenta-list rv">
+      <div class="cuenta-item">
+        <div class="cuenta-num">1</div>
+        <p class="cuenta-txt">Llegar al menos 20 minutos antes del inicio del evento.</p>
+      </div>
+      <div class="cuenta-item">
+        <div class="cuenta-num">2</div>
+        <p class="cuenta-txt">Seguir el código de vestimenta especificado en la invitación.</p>
+      </div>
+      <div class="cuenta-item">
+        <div class="cuenta-num">3</div>
+        <p class="cuenta-txt">Confirmar su asistencia con anticipación, para la correcta organización del evento.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ── ORNAMENTO B (surface → bg) ── -->
   <div class="ornament ornament--s2b rv">
     <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -919,9 +1010,9 @@ body{
 
   <!-- ── 10. GALERÍA — RUEDA 3D ── -->
   <section id="galeria">
-    <p class="eyebrow rv">Nosotros</p>
-    <h2 class="script-title rv">Nuestra Historia</h2>
-    <p class="historia-txt rv">Dos caminos que un día se cruzaron para no volver a separarse. Cada momento compartido nos trajo hasta aquí, y este es solo el comienzo de nuestra historia.</p>
+    <p class="eyebrow rv">Recuerdos que atesoraremos</p>
+    <h2 class="script-title rv">Galería de Fotos</h2>
+    <p class="historia-txt rv">Cada imagen guarda un instante de nuestra historia. Arrastra para recorrer nuestros recuerdos favoritos.</p>
     <div class="wheel-scene rv" id="wheel-scene">
       <div class="wheel-ring" id="wheel-ring">
         <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004043884-5.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
@@ -973,6 +1064,66 @@ body{
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
       Consulta el pronóstico actualizado
     </a>
+  </section>
+
+  <!-- ── ORNAMENTO ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── NUESTRA HISTORIA (4 FASES) ── -->
+  <section id="historia" class="sec sec--bg">
+    <p class="eyebrow rv">Cómo empezó todo</p>
+    <h2 class="script-title rv">Nuestra Historia</h2>
+    <div class="hist-timeline">
+      <div class="hist-fase rv">
+        <div class="hist-foto hist-foto-placeholder">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
+        </div>
+        <div class="hist-fase-num">I</div>
+        <div class="hist-fase-titulo">Primer Encuentro</div>
+        <p class="hist-fase-txt">El día en que nuestras miradas se cruzaron por primera vez y todo comenzó.</p>
+      </div>
+      <div class="hist-fase rv">
+        <div class="hist-foto hist-foto-placeholder">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
+        </div>
+        <div class="hist-fase-num">II</div>
+        <div class="hist-fase-titulo">Nuestro Primer Sí</div>
+        <p class="hist-fase-txt">Cuando decidimos caminar juntos y darle una oportunidad a nuestro amor.</p>
+      </div>
+      <div class="hist-fase rv">
+        <div class="hist-foto hist-foto-placeholder">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
+        </div>
+        <div class="hist-fase-num">III</div>
+        <div class="hist-fase-titulo">La Propuesta</div>
+        <p class="hist-fase-txt">El momento en que decidimos unir nuestras vidas para siempre.</p>
+      </div>
+      <div class="hist-fase rv">
+        <div class="hist-foto hist-foto-placeholder">
+          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
+        </div>
+        <div class="hist-fase-num">IV</div>
+        <div class="hist-fase-titulo">Dos Almas, Un Destino</div>
+        <p class="hist-fase-txt">Hoy celebramos el inicio de nuestro para siempre, rodeados de quienes amamos.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ── ORNAMENTO ── -->
@@ -1047,30 +1198,10 @@ body{
       <span class="qr-label">Escanea para subir tus fotos</span>
     </div>
     <p class="album-hashtag rv">#A&amp;E</p>
-    <p class="album-hashtag-txt rv">Usa este hashtag y comparte tus fotos de la boda en redes sociales</p>
+    <p class="album-hashtag-txt rv">Comparte con nosotros todas tus fotografías del evento, usando el siguiente #hashtag en todas tus publicaciones de Facebook e Instagram.</p>
   </section>
 
   <!-- ── ORNAMENTO B ── -->
-  <div class="ornament rv">
-    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <g transform="translate(180 24)" opacity=".7">
-        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
-        <circle r="1.4" fill="#a67b01"/>
-        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- ── ORNAMENTO ── -->
   <div class="ornament rv">
     <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
@@ -1105,46 +1236,10 @@ body{
         <div class="deseo-texto">Que Dios bendiga su hogar con mucha salud, amor y felicidad en todo momento.</div>
       </div>
     </div>
-    <a class="btn-deseo rv" href="https://wa.me/?text=Mis%20buenos%20deseos%20para%20Adriana%20%26%20Enrique%20%F0%9F%92%9B" target="_blank" rel="noopener">
+    <a class="btn-deseo rv" href="https://wa.me/527711225567?text=Mis%20buenos%20deseos%20para%20Adriana%20%26%20Enrique%20%F0%9F%92%9B" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Enviar mis buenos deseos
     </a>
-  </section>
-
-  <!-- ── ORNAMENTO ── -->
-  <div class="ornament rv">
-    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <g transform="translate(180 24)" opacity=".7">
-        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
-        <circle r="1.4" fill="#a67b01"/>
-        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- ── GALERÍA DE FOTOS ── -->
-  <section id="galeria-fotos" class="sec sec--bg" style="text-align:center">
-    <p class="eyebrow rv">Recuerdos que atesoraremos</p>
-    <h2 class="script-title rv">Galería de Fotos</h2>
-    <div class="galeria-placeholder rv">
-      <div class="galeria-placeholder-icon">
-        <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="64" height="64">
-          <rect x="4" y="12" width="56" height="40" rx="4"/>
-          <circle cx="22" cy="28" r="6"/>
-          <path d="M4 44 L18 30 L28 42 L38 32 L60 44"/>
-        </svg>
-      </div>
-      <p class="galeria-placeholder-txt">¡Muy pronto compartiremos los momentos más especiales de nuestra historia! Regresa a vernos.</p>
-    </div>
   </section>
 
   <!-- ── ORNAMENTO ── -->
@@ -1181,10 +1276,60 @@ body{
         </div>
       </div>
     </div>
-    <a class="btn-cancion rv" href="https://wa.me/?text=Mi%20sugerencia%20de%20canci%C3%B3n%20para%20la%20boda%20de%20Adriana%20%26%20Enrique%3A%20" target="_blank" rel="noopener">
+    <a class="btn-cancion rv" href="https://wa.me/527711225567?text=Mi%20sugerencia%20de%20canci%C3%B3n%20para%20la%20boda%20de%20Adriana%20%26%20Enrique%3A%20" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
       Sugerir una canción
     </a>
+  </section>
+
+  <!-- ── ORNAMENTO ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── CONTACTOS ── -->
+  <section id="contactos" class="sec sec--bg">
+    <p class="eyebrow rv">¿Dudas? Escríbenos</p>
+    <h2 class="script-title rv">Contactos</h2>
+    <div class="contactos-grid rv">
+      <div class="contacto-card">
+        <div class="contacto-avatar">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+        <div class="contacto-rol">Novia</div>
+        <div class="contacto-nombre">Adriana</div>
+        <a class="btn-contacto" href="https://wa.me/527711225567" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="contacto-card">
+        <div class="contacto-avatar">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+        <div class="contacto-rol">Novio</div>
+        <div class="contacto-nombre">Enrique</div>
+        <a class="btn-contacto" href="https://wa.me/527727361491" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- ── ORNAMENTO ── -->
