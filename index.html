@@ -395,20 +395,58 @@ body{
 /* ── GALERÍA ── */
 #galeria{padding:72px 28px;background:var(--bg);text-align:center}
 .historia-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;font-weight:500;line-height:1.8;color:var(--dark);max-width:340px;margin:18px auto 36px;}
-.gal-wrap{position:relative;margin-top:32px}
-.gal-carousel{position:relative;overflow:hidden;border-radius:28px;aspect-ratio:4/5;box-shadow:0 16px 56px rgba(166,123,1,.22);cursor:grab;user-select:none;}
-.gal-carousel:active{cursor:grabbing}
-.gal-slide{position:absolute;inset:0;opacity:0;transition:opacity .85s cubic-bezier(.4,0,.2,1);pointer-events:none;}
-.gal-slide.active{opacity:1;pointer-events:auto}
-.gal-slide img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;pointer-events:none;}
-.gal-vignette{position:absolute;inset:0;background:linear-gradient(to top,rgba(1,1,3,.28) 0%,transparent 55%);pointer-events:none;}
-.gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.72);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);z-index:10;transition:background .2s,transform .2s;-webkit-backdrop-filter:blur(6px);}
-.gal-btn:hover{background:rgba(255,255,255,.95);transform:translateY(-50%) scale(1.08)}
-.gal-btn svg{width:18px;height:18px;stroke:var(--dark);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.gal-prev{left:14px}.gal-next{right:14px}
-.gal-dots{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:20px;}
-.gal-dot{width:7px;height:7px;border-radius:4px;background:var(--accent);opacity:.28;transition:all .4s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none;padding:0;}
-.gal-dot.active{opacity:1;width:22px}
+
+/* ── GALERÍA RUEDA 3D ── */
+#galeria{padding:72px 28px 80px;text-align:center;overflow:visible}
+.wheel-scene{position:relative;width:100%;height:520px;margin:40px auto 0;perspective:1400px;transform-style:preserve-3d;overflow:visible}
+.wheel-ring{position:absolute;width:100%;height:100%;transform-style:preserve-3d;cursor:grab}
+.wheel-ring.dragging{cursor:grabbing}
+.wheel-card{position:absolute;width:200px;height:280px;left:50%;top:50%;margin-left:-100px;margin-top:-140px;border-radius:18px;overflow:hidden;border:2px solid rgba(166,123,1,.28);box-shadow:0 12px 40px rgba(79,85,4,.18);user-select:none;-webkit-user-select:none}
+.wheel-card img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none}
+.gal-hint{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:3px;color:var(--accent);margin-top:24px;opacity:.8}
+
+/* ── CLIMA ── */
+.sec-clima{text-align:center}
+.clima-card{display:inline-flex;flex-direction:column;align-items:center;gap:12px;background:rgba(166,123,1,.07);border:1px solid rgba(166,123,1,.18);border-radius:20px;padding:32px 28px;max-width:340px;margin:28px auto 0}
+.clima-icon{font-size:52px;line-height:1}
+.clima-temp-row{display:flex;align-items:center;gap:16px}
+.clima-temp{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:500;color:var(--accent);line-height:1}
+.clima-temp span{font-size:22px;vertical-align:super;color:var(--dark)}
+.clima-temp-sep{width:1px;height:40px;background:rgba(166,123,1,.3)}
+.clima-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--text);line-height:1.5;max-width:260px;text-align:center}
+.clima-note{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-top:4px}
+.btn-clima{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:13px 26px;border:1.5px solid var(--accent);border-radius:50px;color:var(--accent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:1px;text-decoration:none;background:transparent;transition:background .25s,color .25s}
+.btn-clima:hover{background:var(--accent);color:#fff}
+.btn-clima svg{width:16px;height:16px;fill:currentColor}
+
+/* ── BUENOS DESEOS ── */
+.deseos-grid{display:flex;flex-direction:column;gap:14px;max-width:420px;margin:28px auto 0}
+.deseo-card{background:rgba(255,255,255,.6);border:1px solid rgba(166,123,1,.15);border-radius:16px;padding:20px 22px;text-align:left;backdrop-filter:blur(4px)}
+.deseo-nombre{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.deseo-texto{font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.6;color:var(--text)}
+.btn-deseo{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:13px 28px;background:var(--accent);border-radius:50px;color:#fff;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:1px;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s}
+.btn-deseo:hover{opacity:.85}
+.btn-deseo svg{width:16px;height:16px;fill:currentColor}
+
+/* ── GALERÍA FOTOS PLACEHOLDER ── */
+.galeria-placeholder{display:flex;flex-direction:column;align-items:center;gap:20px;padding:40px 24px;background:rgba(166,123,1,.05);border:1.5px dashed rgba(166,123,1,.25);border-radius:20px;max-width:360px;margin:28px auto 0}
+.galeria-placeholder-icon{opacity:.4}
+.galeria-placeholder-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;line-height:1.6;color:var(--text);text-align:center;opacity:.8}
+
+/* ── SUGERENCIA DE CANCIONES ── */
+.canciones-list{display:flex;flex-direction:column;gap:12px;max-width:400px;margin:24px auto 0}
+.cancion-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.5);border:1px solid rgba(166,123,1,.13);border-radius:14px;padding:14px 18px;text-align:left}
+.cancion-ic{width:38px;height:38px;border-radius:50%;background:rgba(166,123,1,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cancion-ic svg{width:16px;height:16px;fill:var(--accent)}
+.cancion-info{flex:1}
+.cancion-nombre{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;color:var(--text)}
+.cancion-artista{font-family:'Lato',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);opacity:.8;margin-top:2px}
+.btn-cancion{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:12px 26px;border:1.5px solid var(--accent);border-radius:50px;color:var(--accent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:1px;text-decoration:none;background:transparent;transition:background .25s,color .25s}
+.btn-cancion:hover{background:var(--accent);color:#fff}
+.btn-cancion svg{width:14px;height:14px;fill:currentColor}
+
+/* ── RSVP INVITE ── */
+.rsvp-invite{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.6;color:var(--text);max-width:320px;margin:0 auto 24px;text-align:center}
 
 /* ── RSVP ── */
 #rsvp{padding:72px 28px;background:var(--bg);text-align:center}
@@ -457,6 +495,8 @@ body{
 .album-qr-wrap{display:inline-flex;flex-direction:column;align-items:center;gap:14px;background:var(--card);border-radius:24px;padding:28px;box-shadow:0 4px 24px rgba(166,123,1,.1);}
 .album-qr-wrap img{width:180px;height:180px;border-radius:12px;display:block;}
 .qr-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);}
+.album-hashtag{font-family:'Great Vibes',cursive;font-size:38px;color:var(--accent);margin-top:18px;line-height:1}
+.album-hashtag-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:2px;color:var(--text);opacity:.7;margin-top:6px}
 
 /* ── FOOTER ── */
 #footer{padding:64px 28px;text-align:center;background:var(--bg)}
@@ -645,7 +685,7 @@ body{
       <div class="family-divider-v"></div>
       <div class="family-side">
         <p class="family-label">Padres de la Novia</p>
-        <p class="family-names">Sonia Ángeles Hernández<br>y Luis Larrieta Hernández&nbsp;&dagger;</p>
+        <p class="family-names">Sonia Ángeles Hernández<br>y Luis Larrieta Hernández&nbsp;<svg aria-label="†" viewBox="0 0 12 18" width="11" height="16" style="display:inline-block;vertical-align:middle;margin-bottom:2px;opacity:.75" fill="#a67b01" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="0" width="3" height="18" rx="1.2"/><rect x="0" y="4.5" width="12" height="3" rx="1.2"/></svg></p>
       </div>
     </div>
 
@@ -661,49 +701,6 @@ body{
     </div>
 
     <p class="family-closing rv">¡Nos gustaría mucho que nos acompañaras!</p>
-  </section>
-
-  <!-- ── ORNAMENTO B ── -->
-  <div class="ornament rv">
-    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <g transform="translate(180 24)" opacity=".7">
-        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
-        <circle r="1.4" fill="#a67b01"/>
-        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- ── 6. CORTEJO ── -->
-  <section id="cortejo" class="sec sec--bg">
-    <p class="eyebrow rv">Quienes nos acompañan</p>
-    <h2 class="script-title rv">Cortejo</h2>
-
-    <div class="cortejo-cols rv">
-      <div class="cortejo-col">
-        <span class="cortejo-col-label">Damas de Honor</span>
-        <p class="kids-cortejo-pending" style="margin-top:6px">Por confirmar</p>
-      </div>
-      <div class="cortejo-col">
-        <span class="cortejo-col-label">Chambelanes</span>
-        <p class="kids-cortejo-pending" style="margin-top:6px">Por confirmar</p>
-      </div>
-    </div>
-
-    <!-- PENDIENTE: nombres de los niños del cortejo -->
-    <div class="kids-cortejo rv">
-      <span class="kids-cortejo-label">Pequeños del Cortejo</span>
-      <p class="kids-cortejo-pending">Próximamente anunciaremos los nombres de los pequeños que formarán parte de este día tan especial.</p>
-    </div>
   </section>
 
   <!-- ── ORNAMENTO A (bg → surface) ── -->
@@ -920,57 +917,65 @@ body{
     </svg>
   </div>
 
-  <!-- ── 10. GALERÍA — NUESTRA HISTORIA ── -->
+  <!-- ── 10. GALERÍA — RUEDA 3D ── -->
   <section id="galeria">
     <p class="eyebrow rv">Nosotros</p>
     <h2 class="script-title rv">Nuestra Historia</h2>
-    <!-- PENDIENTE: texto de la historia de la pareja (a proporcionar por el cliente) -->
     <p class="historia-txt rv">Dos caminos que un día se cruzaron para no volver a separarse. Cada momento compartido nos trajo hasta aquí, y este es solo el comienzo de nuestra historia.</p>
-    <div class="gal-wrap rv">
-      <div class="gal-carousel" id="galCarousel">
-        <div class="gal-slide active">
-          <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004043884-5.jpeg" alt="Adriana &amp; Enrique" loading="lazy">
-          <div class="gal-vignette"></div>
-        </div>
-        <div class="gal-slide">
-          <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004089206-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy">
-          <div class="gal-vignette"></div>
-        </div>
-        <div class="gal-slide">
-          <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004123591-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy">
-          <div class="gal-vignette"></div>
-        </div>
-        <div class="gal-slide">
-          <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004169369-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy">
-          <div class="gal-vignette"></div>
-        </div>
-        <div class="gal-slide">
-          <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004202409-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy">
-          <div class="gal-vignette"></div>
-        </div>
-        <div class="gal-slide">
-          <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004324304-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy">
-          <div class="gal-vignette"></div>
-        </div>
-        <button class="gal-btn gal-prev" aria-label="Anterior">
-          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="gal-btn gal-next" aria-label="Siguiente">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-      <div class="gal-dots">
-        <button class="gal-dot active" aria-label="Foto 1"></button>
-        <button class="gal-dot" aria-label="Foto 2"></button>
-        <button class="gal-dot" aria-label="Foto 3"></button>
-        <button class="gal-dot" aria-label="Foto 4"></button>
-        <button class="gal-dot" aria-label="Foto 5"></button>
-        <button class="gal-dot" aria-label="Foto 6"></button>
+    <div class="wheel-scene rv" id="wheel-scene">
+      <div class="wheel-ring" id="wheel-ring">
+        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004043884-5.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004089206-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004123591-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004169369-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004202409-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004324304-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
       </div>
     </div>
+    <p class="gal-hint rv">Arrastra para girar</p>
   </section>
 
-  <!-- ── ORNAMENTO B ── -->
+  <!-- ── ORNAMENTO ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── CLIMA ── -->
+  <section id="clima" class="sec sec-clima">
+    <p class="eyebrow rv">Toma precauciones</p>
+    <h2 class="script-title rv">El Clima ese Día</h2>
+    <div class="clima-card rv">
+      <div class="clima-icon">🌤️</div>
+      <div class="clima-temp-row">
+        <div class="clima-temp">25<span>°C</span></div>
+        <div class="clima-temp-sep"></div>
+        <div class="clima-temp">15<span>°C</span></div>
+      </div>
+      <p class="clima-note">Máx · Agosto en Hidalgo · Mín</p>
+      <p class="clima-desc">Agosto es temporada de lluvias en el altiplano hidalguense. Las tardes suelen ser frescas con posibilidad de lluvia. ¡Ven preparado!</p>
+    </div>
+    <a class="btn-clima rv" href="https://www.google.com/search?q=clima+francisco+i+madero+hidalgo+15+agosto+2026" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      Consulta el pronóstico actualizado
+    </a>
+  </section>
+
+  <!-- ── ORNAMENTO ── -->
   <div class="ornament rv">
     <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
@@ -1041,9 +1046,148 @@ body{
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=360x360&color=a67b01&bgcolor=f7ecd8&margin=18&data=https%3A%2F%2Fboda-adriana-y-enrique.vercel.app" alt="QR Álbum de fotos Adriana y Enrique">
       <span class="qr-label">Escanea para subir tus fotos</span>
     </div>
+    <p class="album-hashtag rv">#A&amp;E</p>
+    <p class="album-hashtag-txt rv">Usa este hashtag y comparte tus fotos de la boda en redes sociales</p>
   </section>
 
   <!-- ── ORNAMENTO B ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── ORNAMENTO ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── BUENOS DESEOS ── -->
+  <section id="buenos-deseos" class="sec sec--bg" style="text-align:center">
+    <p class="eyebrow rv">Con todo nuestro cariño</p>
+    <h2 class="script-title rv">Buenos Deseos</h2>
+    <p class="historia-txt rv">Déjanos un mensaje de amor que llevaremos en el corazón siempre.</p>
+    <div class="deseos-grid rv">
+      <div class="deseo-card">
+        <div class="deseo-nombre">Un amigo especial</div>
+        <div class="deseo-texto">Que su amor sea eterno y lleno de momentos mágicos. ¡Felicidades a los novios!</div>
+      </div>
+      <div class="deseo-card">
+        <div class="deseo-nombre">La familia</div>
+        <div class="deseo-texto">Que Dios bendiga su hogar con mucha salud, amor y felicidad en todo momento.</div>
+      </div>
+    </div>
+    <a class="btn-deseo rv" href="https://wa.me/?text=Mis%20buenos%20deseos%20para%20Adriana%20%26%20Enrique%20%F0%9F%92%9B" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar mis buenos deseos
+    </a>
+  </section>
+
+  <!-- ── ORNAMENTO ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── GALERÍA DE FOTOS ── -->
+  <section id="galeria-fotos" class="sec sec--bg" style="text-align:center">
+    <p class="eyebrow rv">Recuerdos que atesoraremos</p>
+    <h2 class="script-title rv">Galería de Fotos</h2>
+    <div class="galeria-placeholder rv">
+      <div class="galeria-placeholder-icon">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="64" height="64">
+          <rect x="4" y="12" width="56" height="40" rx="4"/>
+          <circle cx="22" cy="28" r="6"/>
+          <path d="M4 44 L18 30 L28 42 L38 32 L60 44"/>
+        </svg>
+      </div>
+      <p class="galeria-placeholder-txt">¡Muy pronto compartiremos los momentos más especiales de nuestra historia! Regresa a vernos.</p>
+    </div>
+  </section>
+
+  <!-- ── ORNAMENTO ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── SUGERENCIA DE CANCIONES ── -->
+  <section id="canciones" class="sec sec--bg" style="text-align:center">
+    <p class="eyebrow rv">Para el ambiente perfecto</p>
+    <h2 class="script-title rv">Sugerencia de Canciones</h2>
+    <p class="historia-txt rv">¿Tienes una canción favorita que no puede faltar? ¡Ayúdanos a crear la playlist perfecta para nuestra boda!</p>
+    <div class="canciones-list rv">
+      <div class="cancion-item">
+        <div class="cancion-ic"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></div>
+        <div class="cancion-info">
+          <div class="cancion-nombre">Tu canción favorita</div>
+          <div class="cancion-artista">Sugiérela vía WhatsApp</div>
+        </div>
+      </div>
+    </div>
+    <a class="btn-cancion rv" href="https://wa.me/?text=Mi%20sugerencia%20de%20canci%C3%B3n%20para%20la%20boda%20de%20Adriana%20%26%20Enrique%3A%20" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      Sugerir una canción
+    </a>
+  </section>
+
+  <!-- ── ORNAMENTO ── -->
   <div class="ornament rv">
     <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
@@ -1068,6 +1212,7 @@ body{
     <p class="eyebrow rv">Confirma tu Asistencia</p>
     <h2 class="script-title rv">R.S.V.P.</h2>
     <p class="rsvp-note rv">Tu confirmación nos ayuda a preparar todo con amor</p>
+    <p class="rsvp-invite rv">Nos gustaría que nos acompañes en este día tan especial.</p>
 
     <div class="rsvp-card rv" id="rsvpCard">
       <p class="rsvp-greet" id="rsvpGreet">Nos encantará contar contigo</p>
@@ -1334,29 +1479,29 @@ function initAll(){
         delay:0.7+i*0.32,scrollTrigger:itinTrig});
   });
 
-  (function initCarousel(){
-    const slides=document.querySelectorAll('.gal-slide');
-    const dots=document.querySelectorAll('.gal-dot');
-    const prevBtn=document.querySelector('.gal-prev');
-    const nextBtn=document.querySelector('.gal-next');
-    let current=0,timer;
-    function goTo(n){
-      slides[current].classList.remove('active');dots[current].classList.remove('active');
-      current=((n%slides.length)+slides.length)%slides.length;
-      slides[current].classList.add('active');dots[current].classList.add('active');
-    }
-    function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(current+1),4000);}
-    let startX=0;
-    const carousel=document.getElementById('galCarousel');
-    carousel.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
-    carousel.addEventListener('touchend',e=>{
-      const dx=e.changedTouches[0].clientX-startX;
-      if(Math.abs(dx)>40){goTo(current+(dx<0?1:-1));resetTimer();}
-    },{passive:true});
-    prevBtn.addEventListener('click',()=>{goTo(current-1);resetTimer();});
-    nextBtn.addEventListener('click',()=>{goTo(current+1);resetTimer();});
-    dots.forEach((d,i)=>d.addEventListener('click',()=>{goTo(i);resetTimer();}));
-    resetTimer();
+  /* ── GALERÍA RUEDA 3D ── */
+  (function(){
+    var ring=document.getElementById('wheel-ring');
+    if(!ring)return;
+    var cards=ring.querySelectorAll('.wheel-card');
+    var n=cards.length;if(!n)return;
+    var radius=210,rot=0,vel=0,isDrag=false,startX=0,startRot=0,lastX=0,rafId=null;
+    cards.forEach(function(card,i){card.style.transform='rotateY('+(360/n*i)+'deg) translateZ('+radius+'px)';});
+    function setRot(){gsap.set(ring,{rotateY:rot});}setRot();
+    function inertia(){if(isDrag)return;rot+=vel;vel*=0.94;setRot();if(Math.abs(vel)>0.05)rafId=requestAnimationFrame(inertia);}
+    function pointerDown(x){isDrag=true;ring.classList.add('dragging');startX=x;lastX=x;startRot=rot;vel=0;if(rafId)cancelAnimationFrame(rafId);}
+    function pointerMove(x){if(!isDrag)return;var dx=x-startX;rot=startRot+dx*0.45;vel=(x-lastX)*0.5;lastX=x;setRot();}
+    function pointerUp(){if(!isDrag)return;isDrag=false;ring.classList.remove('dragging');rafId=requestAnimationFrame(inertia);}
+    ring.addEventListener('mousedown',function(e){e.preventDefault();pointerDown(e.clientX);});
+    window.addEventListener('mousemove',function(e){pointerMove(e.clientX);});
+    window.addEventListener('mouseup',pointerUp);
+    ring.addEventListener('touchstart',function(e){pointerDown(e.touches[0].clientX);},{passive:true});
+    ring.addEventListener('touchmove',function(e){pointerMove(e.touches[0].clientX);},{passive:true});
+    ring.addEventListener('touchend',pointerUp);
+    var auto=true;
+    (function spin(){if(auto&&!isDrag){rot+=0.12;setRot();}requestAnimationFrame(spin);})();
+    ring.addEventListener('mousedown',function(){auto=false;});
+    ring.addEventListener('touchstart',function(){auto=false;});
   })();
 
   const scrollHint=document.getElementById('scrollHint');
