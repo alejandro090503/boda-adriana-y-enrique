@@ -389,6 +389,12 @@ body{
 .dc-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;font-weight:600;color:var(--dark);margin-bottom:10px;}
 .dc-note{font-family:'Lato',sans-serif;font-weight:400;font-size:16px;color:var(--text);letter-spacing:.3px;margin-bottom:28px;line-height:1.65;max-width:300px;margin-left:auto;margin-right:auto;}
 .dc-pending{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(166,123,1,.5);text-align:center;margin-bottom:12px;}
+.dc-figures{display:flex;align-items:center;justify-content:center;gap:30px;margin:6px auto 30px;max-width:380px;}
+.dc-fig{display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;}
+.dc-fig img{height:220px;width:auto;display:block;filter:drop-shadow(0 6px 14px rgba(79,85,4,.22));}
+.dc-fig-label{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;letter-spacing:1px;color:var(--accent);}
+.dc-fig-sub{font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(26,26,26,.6);margin-top:-8px;}
+.dc-sep-line{width:1px;align-self:stretch;min-height:118px;background:linear-gradient(180deg,transparent,rgba(166,123,1,.35) 18%,rgba(166,123,1,.35) 82%,transparent);}
 .dc-reserved-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);text-align:center;margin:18px 0 14px;font-weight:600;}
 .dc-reserved-list{display:flex;flex-direction:column;gap:12px;max-width:340px;margin:0 auto;background:var(--card);border-radius:14px;padding:18px 18px;box-shadow:0 4px 16px rgba(166,123,1,.08);}
 .dc-reserved-row{display:flex;align-items:center;gap:14px;text-align:left;}
@@ -994,6 +1000,20 @@ body{
     <h2 class="script-title rv">Dress Code</h2>
     <p class="dc-subtitle rv">Formal</p>
     <p class="dc-note rv">Pero lo más importante es tu presencia y tu sonrisa.</p>
+
+    <div class="dc-figures rv">
+      <div class="dc-fig">
+        <img src="caballero.png" alt="Caballero, traje formal" loading="lazy">
+        <span class="dc-fig-label">Caballeros</span>
+        <span class="dc-fig-sub">traje formal</span>
+      </div>
+      <div class="dc-sep-line" aria-hidden="true"></div>
+      <div class="dc-fig">
+        <img src="dama.png" alt="Dama, vestido formal" loading="lazy">
+        <span class="dc-fig-label">Damas</span>
+        <span class="dc-fig-sub">vestido</span>
+      </div>
+    </div>
 
     <p class="dc-reserved-label rv">Colores reservados</p>
     <div class="dc-reserved-list rv">
