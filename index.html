@@ -532,9 +532,20 @@ body{
 .music-fab:not(.playing) .ic-pause{display:none}
 
 /* ── HOSPEDAJE ── */
-.hosp-grid{display:flex;flex-direction:column;gap:16px;max-width:420px;margin:28px auto 0}
-.hosp-card{background:var(--card);border:1px solid rgba(166,123,1,.15);border-radius:18px;padding:24px 22px;box-shadow:0 4px 16px rgba(166,123,1,.06);text-align:center}
-.hosp-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:var(--dark);margin-bottom:4px}
+.hosp-carousel{position:relative;max-width:380px;margin:30px auto 0}
+.hosp-viewport{overflow:hidden}
+.hosp-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.hosp-slide{flex:0 0 100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 40px}
+.hosp-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;border:3px solid rgba(166,123,1,.3);box-shadow:0 12px 34px rgba(79,85,4,.18);margin-bottom:22px}
+.hosp-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hosp-arrow{position:absolute;top:108px;transform:translateY(-50%);width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.7);border:1px solid rgba(166,123,1,.25);border-radius:50%;cursor:pointer;color:var(--accent);z-index:2;padding:0;backdrop-filter:blur(3px)}
+.hosp-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.hosp-arrow.prev{left:-2px}
+.hosp-arrow.next{right:-2px}
+.hosp-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.hosp-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(166,123,1,.3);cursor:pointer;padding:0;transition:background .25s,transform .25s}
+.hosp-dots button.active{background:var(--accent);transform:scale(1.3)}
+.hosp-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--dark);margin-bottom:6px}
 .hosp-city{font-family:'Lato',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.8;margin-bottom:16px}
 .btn-hosp{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:1.5px solid var(--accent);border-radius:50px;color:var(--accent);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:.5px;text-decoration:none;background:transparent;transition:background .25s,color .25s}
 .btn-hosp:hover{background:var(--accent);color:#fff}
@@ -552,10 +563,11 @@ body{
 .hist-fase-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;line-height:1.6;color:var(--text);max-width:320px}
 
 /* ── A TOMAR EN CUENTA ── */
-.cuenta-list{display:flex;flex-direction:column;gap:16px;max-width:420px;margin:28px auto 0;text-align:left}
-.cuenta-item{display:flex;align-items:flex-start;gap:16px}
-.cuenta-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center}
-.cuenta-txt{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.55;color:var(--text);padding-top:4px}
+.cuenta-list{display:flex;flex-direction:column;gap:0;max-width:430px;margin:34px auto 0;text-align:left}
+.cuenta-item{display:flex;align-items:flex-start;gap:22px;padding:22px 4px;border-bottom:1px solid rgba(166,123,1,.18)}
+.cuenta-item:last-child{border-bottom:none}
+.cuenta-num{flex-shrink:0;font-family:'Great Vibes',cursive;font-size:40px;line-height:.9;color:var(--accent);width:44px;text-align:center}
+.cuenta-txt{font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.55;color:var(--text);padding-top:8px}
 
 /* ── CONTACTOS ── */
 #contactos{padding:72px 28px;text-align:center}
@@ -568,6 +580,64 @@ body{
 .btn-contacto{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--accent);border-radius:50px;color:#fff;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;text-decoration:none;transition:opacity .2s}
 .btn-contacto:hover{opacity:.85}
 .btn-contacto svg{width:15px;height:15px;fill:currentColor}
+
+/* ── SECCIONES FRASE ── */
+.sec-frase{text-align:center}
+.frase-ornament{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:0 auto 28px;opacity:.7}
+.frase-grande{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(21px,5.6vw,27px);line-height:1.65;color:var(--dark);max-width:440px;margin:0 auto}
+.frase-script{font-family:'Great Vibes',cursive;font-style:normal;font-weight:400;font-size:clamp(32px,9vw,44px);line-height:1.25;color:var(--accent);max-width:460px;margin:0 auto}
+
+/* ── CARRUSEL DE FOTOS (Nuestra Historia) ── */
+#galeria{padding:72px 28px}
+.fotos-carousel{position:relative;max-width:340px;margin:32px auto 0}
+.fotos-viewport{overflow:hidden;border-radius:18px;box-shadow:0 14px 40px rgba(79,85,4,.18)}
+.fotos-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.foto-slide{flex:0 0 100%}
+.foto-slide img{width:100%;height:430px;object-fit:cover;display:block}
+.fotos-titulo{font-family:'Great Vibes',cursive;font-size:clamp(30px,8vw,40px);color:var(--accent);text-align:center;margin-top:22px;min-height:1.1em;transition:opacity .45s ease;opacity:1}
+.fotos-arrow{position:absolute;top:215px;transform:translateY(-50%);width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.7);border:1px solid rgba(166,123,1,.25);border-radius:50%;cursor:pointer;color:var(--accent);z-index:2;padding:0;backdrop-filter:blur(3px)}
+.fotos-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.fotos-arrow.prev{left:8px}
+.fotos-arrow.next{right:8px}
+.fotos-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.fotos-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(166,123,1,.3);cursor:pointer;padding:0;transition:background .25s,transform .25s}
+.fotos-dots button.active{background:var(--accent);transform:scale(1.3)}
+
+/* ── SOBRE INTERACTIVO (Lluvia de Sobres) ── */
+.gifts-hearts{display:flex;flex-direction:column;gap:30px;align-items:center;margin-top:24px}
+.gift-heart-wrapper{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%}
+.gift-envelope{position:relative;width:min(300px,86vw);aspect-ratio:300/230;height:auto;background:none;border:none;padding:0;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;perspective:800px;animation:env-breathe 3.6s ease-in-out infinite;transform-origin:center 55%;will-change:transform,filter}
+.gift-envelope.open{animation:none;transform:scale(1);filter:drop-shadow(0 6px 14px rgba(79,85,4,.22)) drop-shadow(0 20px 44px rgba(166,123,1,.28))}
+.gift-envelope.open .env-glow{animation:none;opacity:.55;transform:scale(1.04)}
+@keyframes env-breathe{0%,100%{transform:scale(1);filter:drop-shadow(0 4px 10px rgba(79,85,4,.12)) drop-shadow(0 18px 40px rgba(166,123,1,.22))}50%{transform:scale(1.04);filter:drop-shadow(0 6px 14px rgba(166,123,1,.32)) drop-shadow(0 22px 52px rgba(166,123,1,.4)) drop-shadow(0 0 22px rgba(232,203,145,.42))}}
+.env-body-svg{width:100%;height:100%;display:block}
+.env-body-svg .env-rect,.env-body-svg .env-seal{animation:env-stroke 3.6s ease-in-out infinite;will-change:stroke,stroke-width}
+@keyframes env-stroke{0%,100%{stroke:#c9a86a;stroke-width:1.5}50%{stroke:#a67b01;stroke-width:2.6}}
+.env-flap-wrap{position:absolute;top:26.09%;left:6%;width:88%;height:37.4%;transform-origin:top center;transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .7s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:2}
+.gift-envelope.open .env-flap-wrap{transform:rotateX(-175deg)}
+.env-flap-wrap svg{width:100%;height:100%;display:block}
+.env-flap-wrap svg path{animation:env-stroke 3.6s ease-in-out infinite}
+.env-glow{position:absolute;inset:-8% -6%;border-radius:18px;background:radial-gradient(ellipse at center,rgba(166,123,1,.22) 0%,rgba(232,203,145,.14) 40%,transparent 70%);opacity:.6;pointer-events:none;z-index:-1;animation:env-glow-pulse 3.6s ease-in-out infinite}
+@keyframes env-glow-pulse{0%,100%{opacity:.35;transform:scale(.95)}50%{opacity:.8;transform:scale(1.08)}}
+.env-open-content{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s .25s ease,opacity .4s .32s ease,margin-top .55s .25s ease;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 20px;text-align:center;pointer-events:none;margin-top:0;width:100%;max-width:380px}
+.gift-envelope.open ~ .env-open-content{max-height:460px;opacity:1;pointer-events:auto;margin-top:18px}
+.gift-icon-sm{width:44px;height:44px;color:var(--accent);margin-top:10px}
+.gift-icon-sm svg{width:100%;height:100%}
+.gift-name-sm{font-family:'Great Vibes',cursive;font-size:34px;color:var(--accent);line-height:1.15}
+.gift-desc-sm{font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:var(--text);line-height:1.7;max-width:320px}
+.env-tap-hint{font-family:'Lato',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-top:4px;transition:opacity .3s}
+.gift-envelope.open ~ .env-tap-hint{opacity:0;pointer-events:none}
+
+/* ── SECCIÓN HASHTAG #A&E ── */
+.hashtag-sec{text-align:center;background:linear-gradient(160deg,var(--dark) 0%,#3a3f03 100%);padding:80px 28px}
+.hashtag-camera{width:88px;height:88px;margin:0 auto 26px}
+.hashtag-camera svg{width:100%;height:100%;fill:none;stroke:#e8cb91;stroke-width:1.3;stroke-linejoin:round}
+.hashtag-grande{font-family:'Great Vibes',cursive;font-size:clamp(48px,15vw,76px);color:#f4e9c8;line-height:1;margin-bottom:22px}
+.hashtag-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;line-height:1.7;color:rgba(244,233,200,.85);max-width:350px;margin:0 auto}
+
+/* ── FRASE FINAL FOOTER ── */
+.footer-invite{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,5.2vw,24px);line-height:1.6;color:var(--dark);max-width:400px;margin:0 auto 38px}
+.footer-invite-orn{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:0 auto 26px;opacity:.7}
 </style>
 </head>
 <body>
@@ -728,7 +798,7 @@ body{
   </div>
 
   <!-- ── 5. FAMILIA ── -->
-  <section id="familia" class="sec">
+  <section id="familia" class="sec sec--bg">
     <p class="eyebrow rv">Con la bendición de Dios y de nuestros padres</p>
     <h2 class="script-title rv">Nuestras Familias</h2>
 
@@ -743,10 +813,58 @@ body{
         <p class="family-names">Sonia Ángeles Hernández<br>y Luis Larrieta Hernández&nbsp;<svg aria-label="†" viewBox="0 0 12 18" width="11" height="16" style="display:inline-block;vertical-align:middle;margin-bottom:2px;opacity:.75" fill="#a67b01" xmlns="http://www.w3.org/2000/svg"><rect x="4.5" y="0" width="3" height="18" rx="1.2"/><rect x="0" y="4.5" width="12" height="3" rx="1.2"/></svg></p>
       </div>
     </div>
+  </section>
 
-    <p class="family-bridge rv">Queremos celebrar el inicio de nuestro para siempre junto a las personas que más queremos.</p>
+  <!-- ── ORNAMENTO (bg → surface) ── -->
+  <div class="ornament ornament--b2s rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
 
-    <p class="eyebrow padrinos-eyebrow rv">Nuestros Padrinos</p>
+  <!-- ── FRASE: CELEBRAR ── -->
+  <section id="frase-celebrar" class="sec sec--surface sec-frase">
+    <div class="frase-ornament rv"></div>
+    <p class="frase-grande rv">Queremos celebrar el inicio de nuestro para siempre junto a las personas que más queremos.</p>
+  </section>
+
+  <!-- ── ORNAMENTO (surface → bg) ── -->
+  <div class="ornament ornament--s2b rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── 6. PADRINOS ── -->
+  <section id="padrinos" class="sec sec--bg" style="text-align:center">
+    <p class="eyebrow rv">Quienes nos acompañan</p>
+    <h2 class="script-title rv">Nuestros Padrinos</h2>
     <div class="padrinos-carousel rv">
       <button class="padrinos-arrow prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
       <button class="padrinos-arrow next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
@@ -788,36 +906,51 @@ body{
       </div>
     </div>
 
-    <p class="family-closing rv">¡Nos gustaría mucho que nos acompañaras!</p>
   </section>
 
-  <!-- ── ORNAMENTO A (bg → surface) ── -->
+  <!-- ── ORNAMENTO (bg → surface) ── -->
   <div class="ornament ornament--b2s rv">
-    <svg viewBox="0 0 360 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g opacity=".5" stroke="#a67b01">
-        <path d="M180 58 C158 42 118 34 68 16" stroke-width="1.3"/>
-        <path d="M180 58 C202 42 242 34 292 16" stroke-width="1.3"/>
-        <path d="M138 36 C130 26 122 20 116 12" stroke-width=".9"/>
-        <path d="M108 24 C100 18 94 12 90 6" stroke-width=".9"/>
-        <path d="M222 36 C230 26 238 20 244 12" stroke-width=".9"/>
-        <path d="M252 24 C260 18 266 12 270 6" stroke-width=".9"/>
-        <path d="M128 32 C120 28 112 26 106 27" stroke-width=".8"/>
-        <path d="M98 20 C90 16 82 17 76 19" stroke-width=".8"/>
-        <path d="M232 32 C240 28 248 26 254 27" stroke-width=".8"/>
-        <path d="M262 20 C270 16 278 17 284 19" stroke-width=".8"/>
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
       </g>
-      <g opacity=".5" fill="#a67b01">
-        <circle cx="116" cy="12" r="2.5"/><circle cx="114" cy="9" r="1.4"/>
-        <circle cx="118" cy="9" r="1.4"/><circle cx="116" cy="6" r="1.4"/>
-        <circle cx="90" cy="6" r="2.2"/><circle cx="88" cy="3" r="1.3"/><circle cx="92" cy="3" r="1.3"/>
-        <circle cx="106" cy="27" r="1.8"/><circle cx="76" cy="19" r="1.8"/>
-        <circle cx="244" cy="12" r="2.5"/><circle cx="242" cy="9" r="1.4"/>
-        <circle cx="246" cy="9" r="1.4"/><circle cx="244" cy="6" r="1.4"/>
-        <circle cx="270" cy="6" r="2.2"/><circle cx="268" cy="3" r="1.3"/><circle cx="272" cy="3" r="1.3"/>
-        <circle cx="254" cy="27" r="1.8"/><circle cx="284" cy="19" r="1.8"/>
+    </svg>
+  </div>
+
+  <!-- ── FRASE: ACOMPAÑAR ── -->
+  <section id="frase-acompanar" class="sec sec--surface sec-frase">
+    <div class="frase-ornament rv"></div>
+    <p class="frase-script rv">¡Nos gustaría mucho que nos acompañaras!</p>
+  </section>
+
+  <!-- ── ORNAMENTO (surface) ── -->
+  <div class="ornament ornament--surface rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
       </g>
-      <circle cx="180" cy="48" r="3" fill="#a67b01" opacity=".5"/>
-      <path d="M180 58 L180 50" stroke="#a67b01" stroke-width="1" opacity=".5"/>
     </svg>
   </div>
 
@@ -866,30 +999,44 @@ body{
     <p class="eyebrow rv">Para tu comodidad</p>
     <h2 class="script-title rv">Sugerencia de Hospedaje</h2>
     <p class="historia-txt rv">Si vienes de fuera, te recomendamos estas opciones de hospedaje cercanas.</p>
-    <div class="hosp-grid rv">
-      <div class="hosp-card">
-        <div class="hosp-name">Hotel Quinta Rivera</div>
-        <div class="hosp-city">Actopan, Hidalgo</div>
-        <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Quinta+Rivera+Actopan+Hidalgo" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Ver ubicación
-        </a>
+    <div class="hosp-carousel rv">
+      <button class="hosp-arrow prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="hosp-arrow next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      <div class="hosp-viewport">
+        <div class="hosp-track" id="hospTrack">
+          <div class="hosp-slide">
+            <div class="hosp-photo"><img src="hotel1.jpg" alt="Hotel Quinta Rivera" loading="lazy"></div>
+            <div class="hosp-name">Hotel Quinta Rivera</div>
+            <div class="hosp-city">Actopan, Hidalgo</div>
+            <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Quinta+Rivera+Actopan+Hidalgo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Ver ubicación
+            </a>
+          </div>
+          <div class="hosp-slide">
+            <div class="hosp-photo"><img src="hotel2.jpg" alt="Hotel Convento" loading="lazy"></div>
+            <div class="hosp-name">Hotel Convento</div>
+            <div class="hosp-city">Actopan, Hidalgo</div>
+            <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Convento+Actopan+Hidalgo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Ver ubicación
+            </a>
+          </div>
+          <div class="hosp-slide">
+            <div class="hosp-photo"><img src="hotel3.jpg" alt="Hotel Libertad" loading="lazy"></div>
+            <div class="hosp-name">Hotel Libertad</div>
+            <div class="hosp-city">Actopan, Hidalgo</div>
+            <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Libertad+Actopan+Hidalgo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Ver ubicación
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="hosp-card">
-        <div class="hosp-name">Hotel Convento</div>
-        <div class="hosp-city">Actopan, Hidalgo</div>
-        <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Convento+Actopan+Hidalgo" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Ver ubicación
-        </a>
-      </div>
-      <div class="hosp-card">
-        <div class="hosp-name">Hotel Libertad</div>
-        <div class="hosp-city">Actopan, Hidalgo</div>
-        <a class="btn-hosp" href="https://www.google.com/maps/search/?api=1&query=Hotel+Libertad+Actopan+Hidalgo" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Ver ubicación
-        </a>
+      <div class="hosp-dots" id="hospDots">
+        <button class="active" aria-label="Hotel 1"></button>
+        <button aria-label="Hotel 2"></button>
+        <button aria-label="Hotel 3"></button>
       </div>
     </div>
   </section>
@@ -900,6 +1047,46 @@ body{
       <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
       <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
       <line x1="62" y1="24" x2="62" y2="24" stroke="#a67b01" stroke-width="1" opacity=".35"/>
+      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
+      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
+      <g transform="translate(180 24)" opacity=".7">
+        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
+        <circle r="1.4" fill="#a67b01"/>
+        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
+        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ── CLIMA ── -->
+  <section id="clima" class="sec sec--bg sec-clima">
+    <p class="eyebrow rv">Toma precauciones</p>
+    <h2 class="script-title rv">El Clima ese Día</h2>
+    <div class="clima-card rv">
+      <div class="clima-icon">🌤️</div>
+      <div class="clima-temp-row">
+        <div class="clima-temp">25<span>°C</span></div>
+        <div class="clima-temp-sep"></div>
+        <div class="clima-temp">15<span>°C</span></div>
+      </div>
+      <p class="clima-note">Máx · Agosto en Hidalgo · Mín</p>
+      <p class="clima-desc">Agosto es temporada de lluvias en el altiplano hidalguense. Las tardes suelen ser frescas con posibilidad de lluvia. ¡Ven preparado!</p>
+    </div>
+    <a class="btn-clima rv" href="https://www.google.com/search?q=clima+francisco+i+madero+hidalgo+15+agosto+2026" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      Consulta el pronóstico actualizado
+    </a>
+  </section>
+
+  <!-- ── ORNAMENTO ── -->
+  <div class="ornament rv">
+    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
+      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
       <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
       <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
       <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
@@ -1038,15 +1225,15 @@ body{
     <h2 class="script-title rv">A Tomar en Cuenta</h2>
     <div class="cuenta-list rv">
       <div class="cuenta-item">
-        <div class="cuenta-num">1</div>
+        <div class="cuenta-num">I</div>
         <p class="cuenta-txt">Llegar al menos 20 minutos antes del inicio del evento.</p>
       </div>
       <div class="cuenta-item">
-        <div class="cuenta-num">2</div>
+        <div class="cuenta-num">II</div>
         <p class="cuenta-txt">Seguir el código de vestimenta especificado en la invitación.</p>
       </div>
       <div class="cuenta-item">
-        <div class="cuenta-num">3</div>
+        <div class="cuenta-num">III</div>
         <p class="cuenta-txt">Confirmar su asistencia con anticipación, para la correcta organización del evento.</p>
       </div>
     </div>
@@ -1072,122 +1259,29 @@ body{
     </svg>
   </div>
 
-  <!-- ── 10. GALERÍA — RUEDA 3D ── -->
-  <section id="galeria">
-    <p class="eyebrow rv">Recuerdos que atesoraremos</p>
-    <h2 class="script-title rv">Galería de Fotos</h2>
-    <p class="historia-txt rv">Cada imagen guarda un instante de nuestra historia. Arrastra para recorrer nuestros recuerdos favoritos.</p>
-    <div class="wheel-scene rv" id="wheel-scene">
-      <div class="wheel-ring" id="wheel-ring">
-        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004043884-5.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
-        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004089206-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
-        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004123591-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
-        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004169369-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
-        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004202409-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
-        <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004324304-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
-      </div>
-    </div>
-    <p class="gal-hint rv">Arrastra para girar</p>
-  </section>
-
-  <!-- ── ORNAMENTO ── -->
-  <div class="ornament rv">
-    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <g transform="translate(180 24)" opacity=".7">
-        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
-        <circle r="1.4" fill="#a67b01"/>
-        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- ── CLIMA ── -->
-  <section id="clima" class="sec sec-clima">
-    <p class="eyebrow rv">Toma precauciones</p>
-    <h2 class="script-title rv">El Clima ese Día</h2>
-    <div class="clima-card rv">
-      <div class="clima-icon">🌤️</div>
-      <div class="clima-temp-row">
-        <div class="clima-temp">25<span>°C</span></div>
-        <div class="clima-temp-sep"></div>
-        <div class="clima-temp">15<span>°C</span></div>
-      </div>
-      <p class="clima-note">Máx · Agosto en Hidalgo · Mín</p>
-      <p class="clima-desc">Agosto es temporada de lluvias en el altiplano hidalguense. Las tardes suelen ser frescas con posibilidad de lluvia. ¡Ven preparado!</p>
-    </div>
-    <a class="btn-clima rv" href="https://www.google.com/search?q=clima+francisco+i+madero+hidalgo+15+agosto+2026" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-      Consulta el pronóstico actualizado
-    </a>
-  </section>
-
-  <!-- ── ORNAMENTO ── -->
-  <div class="ornament rv">
-    <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="30" y1="24" x2="156" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <line x1="204" y1="24" x2="330" y2="24" stroke="#a67b01" stroke-width="1" opacity=".45"/>
-      <circle cx="30" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="330" cy="24" r="1.8" fill="#a67b01" opacity=".4"/>
-      <circle cx="90" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <circle cx="270" cy="24" r="1.4" fill="#a67b01" opacity=".4"/>
-      <g transform="translate(180 24)" opacity=".7">
-        <circle r="3.6" fill="none" stroke="#a67b01" stroke-width="1"/>
-        <circle r="1.4" fill="#a67b01"/>
-        <path d="M0 -10 C 4 -6 4 -3 0 -3 C -4 -3 -4 -6 0 -10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M0 10 C 4 6 4 3 0 3 C -4 3 -4 6 0 10 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M-10 0 C -6 4 -3 4 -3 0 C -3 -4 -6 -4 -10 0 Z" fill="#a67b01" opacity=".75"/>
-        <path d="M10 0 C 6 4 3 4 3 0 C 3 -4 6 -4 10 0 Z" fill="#a67b01" opacity=".75"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- ── NUESTRA HISTORIA (4 FASES) ── -->
-  <section id="historia" class="sec sec--bg">
+  <!-- ── 10. GALERÍA — NUESTRA HISTORIA ── -->
+  <section id="galeria" class="sec sec--bg" style="text-align:center">
     <p class="eyebrow rv">Cómo empezó todo</p>
     <h2 class="script-title rv">Nuestra Historia</h2>
-    <div class="hist-timeline">
-      <div class="hist-fase rv">
-        <div class="hist-foto hist-foto-placeholder">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
+    <div class="fotos-carousel rv">
+      <button class="fotos-arrow prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="fotos-arrow next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      <div class="fotos-viewport">
+        <div class="fotos-track" id="fotosTrack">
+          <div class="foto-slide"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004043884-5.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+          <div class="foto-slide"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004089206-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+          <div class="foto-slide"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004123591-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
+          <div class="foto-slide"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dd2a3337-c1b4-4de8-aa17-2b946a72a5ee/1781004169369-0.jpeg" alt="Adriana &amp; Enrique" loading="lazy"></div>
         </div>
-        <div class="hist-fase-num">I</div>
-        <div class="hist-fase-titulo">Primer Encuentro</div>
-        <p class="hist-fase-txt">El día en que nuestras miradas se cruzaron por primera vez y todo comenzó.</p>
       </div>
-      <div class="hist-fase rv">
-        <div class="hist-foto hist-foto-placeholder">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
-        </div>
-        <div class="hist-fase-num">II</div>
-        <div class="hist-fase-titulo">Nuestro Primer Sí</div>
-        <p class="hist-fase-txt">Cuando decidimos caminar juntos y darle una oportunidad a nuestro amor.</p>
-      </div>
-      <div class="hist-fase rv">
-        <div class="hist-foto hist-foto-placeholder">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
-        </div>
-        <div class="hist-fase-num">III</div>
-        <div class="hist-fase-titulo">La Propuesta</div>
-        <p class="hist-fase-txt">El momento en que decidimos unir nuestras vidas para siempre.</p>
-      </div>
-      <div class="hist-fase rv">
-        <div class="hist-foto hist-foto-placeholder">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#a67b01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="56" height="56"><rect x="4" y="12" width="56" height="40" rx="4"/><circle cx="22" cy="28" r="6"/><path d="M4 44 L18 30 L28 42 L38 32 L60 44"/></svg>
-        </div>
-        <div class="hist-fase-num">IV</div>
-        <div class="hist-fase-titulo">Dos Almas, Un Destino</div>
-        <p class="hist-fase-txt">Hoy celebramos el inicio de nuestro para siempre, rodeados de quienes amamos.</p>
+      <div class="fotos-dots" id="fotosDots">
+        <button class="active" aria-label="Foto 1"></button>
+        <button aria-label="Foto 2"></button>
+        <button aria-label="Foto 3"></button>
+        <button aria-label="Foto 4"></button>
       </div>
     </div>
+    <div class="fotos-titulo" id="fotosTitulo">Primer encuentro</div>
   </section>
 
   <!-- ── ORNAMENTO ── -->
@@ -1209,25 +1303,40 @@ body{
       </g>
     </svg>
   </div>
-
   <!-- ── 11. MESA DE REGALOS ── -->
   <section id="regalos">
     <p class="eyebrow rv">Mesa de Regalos</p>
     <h2 class="script-title rv">Lluvia de Sobres</h2>
-    <div class="gift-card rv">
-      <p class="gift-msg">
-        Que nos acompañes es lo más importante, pero si está en tu disposición darnos un obsequio como muestra de cariño será bien recibido, o bien, contaremos con lluvia de sobres en efectivo el día de nuestra boda.
-      </p>
-      <div class="gift-divider"></div>
-      <div class="sobres-illu" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="8" y="18" width="48" height="32" rx="2"/>
-          <path d="M8 20 L32 38 L56 20"/>
-          <path d="M14 26 L8 18"/>
-          <path d="M50 26 L56 18"/>
-        </svg>
-      </div>
-      <p class="sobres-note">Habrá un buzón especial en la recepción para recibir tu sobre con cariño.</p>
+    <div class="gifts-hearts rv">
+      <article class="gift-heart-wrapper">
+        <button class="gift-envelope" type="button" aria-expanded="false" aria-label="Toca para abrir el sobre">
+          <span class="env-glow" aria-hidden="true"></span>
+          <svg class="env-body-svg" viewBox="0 0 300 230" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="ae-env-fill" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FBF7EC"/><stop offset="100%" stop-color="#F1E4C4"/></linearGradient>
+              <linearGradient id="ae-env-flap-fill" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#E8CB91"/><stop offset="100%" stop-color="#FBF7EC"/></linearGradient>
+            </defs>
+            <rect class="env-rect" x="18" y="60" width="264" height="152" rx="10" fill="url(#ae-env-fill)" stroke="#c9a86a" stroke-width="1.5"/>
+            <path d="M18 212 L150 122 L282 212" stroke="rgba(166,123,1,.5)" stroke-width="1" fill="none"/>
+            <line x1="100" y1="34" x2="100" y2="22" stroke="#c9a86a" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
+            <line x1="150" y1="28" x2="150" y2="14" stroke="#a67b01" stroke-width="1.4" stroke-linecap="round" opacity=".7"/>
+            <line x1="200" y1="34" x2="200" y2="22" stroke="#c9a86a" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
+            <circle class="env-seal" cx="150" cy="138" r="20" fill="rgba(166,123,1,.1)" stroke="#a67b01" stroke-width="1.2"/>
+            <text x="150" y="144" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-style="italic" fill="#7a5a00" opacity=".88">A&amp;E</text>
+          </svg>
+          <div class="env-flap-wrap" aria-hidden="true">
+            <svg viewBox="0 0 264 110" preserveAspectRatio="none"><path d="M0 0 L132 110 L264 0 Z" fill="url(#ae-env-flap-fill)" stroke="#c9a86a" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+        </button>
+        <div class="env-open-content" aria-live="polite">
+          <div class="gift-icon-sm" aria-hidden="true">
+            <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="22" width="36" height="24" rx="5"/><path d="M8 30 Q26 38 44 30"/><rect x="18" y="8" width="16" height="16" rx="2"/><path d="M18 8 Q26 3 34 8"/></svg>
+          </div>
+          <p class="gift-name-sm">Lluvia de Sobres</p>
+          <p class="gift-desc-sm">Que nos acompañes es lo más importante, pero si está en tu disposición darnos un obsequio como muestra de cariño será bien recibido, o bien, contaremos con lluvia de sobres en efectivo el día de nuestra boda.</p>
+        </div>
+        <p class="env-tap-hint">Toca el sobre</p>
+      </article>
     </div>
   </section>
 
@@ -1261,8 +1370,15 @@ body{
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=360x360&color=a67b01&bgcolor=f7ecd8&margin=18&data=https%3A%2F%2Fboda-adriana-y-enrique.vercel.app" alt="QR Álbum de fotos Adriana y Enrique">
       <span class="qr-label">Escanea para subir tus fotos</span>
     </div>
-    <p class="album-hashtag rv">#A&amp;E</p>
-    <p class="album-hashtag-txt rv">Comparte con nosotros todas tus fotografías del evento, usando el siguiente #hashtag en todas tus publicaciones de Facebook e Instagram.</p>
+  </section>
+
+  <!-- ── SECCIÓN HASHTAG #A&E ── -->
+  <section id="hashtag" class="hashtag-sec">
+    <div class="hashtag-camera rv">
+      <svg viewBox="0 0 64 64"><path d="M8 21h9l4-6h22l4 6h9a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V23a2 2 0 0 1 2-2Z"/><circle cx="32" cy="35" r="11"/><circle cx="32" cy="35" r="5"/><circle cx="50" cy="27" r="1.6" fill="#e8cb91" stroke="none"/></svg>
+    </div>
+    <div class="hashtag-grande rv">#A&amp;E</div>
+    <p class="hashtag-txt rv">Comparte con nosotros todas tus fotografías del evento, usando el siguiente hashtag en todas tus publicaciones de Facebook e Instagram.</p>
   </section>
 
   <!-- ── ORNAMENTO B ── -->
@@ -1421,7 +1537,6 @@ body{
     <p class="eyebrow rv">Confirma tu Asistencia</p>
     <h2 class="script-title rv">R.S.V.P.</h2>
     <p class="rsvp-note rv">Tu confirmación nos ayuda a preparar todo con amor</p>
-    <p class="rsvp-invite rv">Nos gustaría que nos acompañes en este día tan especial.</p>
 
     <div class="rsvp-card rv" id="rsvpCard">
       <p class="rsvp-greet" id="rsvpGreet">Nos encantará contar contigo</p>
@@ -1437,6 +1552,8 @@ body{
 
   <!-- ── 14. FOOTER ── -->
   <footer id="footer">
+    <div class="footer-invite-orn rv"></div>
+    <p class="footer-invite rv">Nos gustaría que nos acompañes en este día tan especial.</p>
     <div class="footer-names rv">Adriana &amp; Enrique</div>
     <div class="footer-date rv">15 &middot; Agosto &middot; 2026</div>
     <div class="footer-hr"></div>
@@ -1739,6 +1856,73 @@ function initAll(){
     },{passive:true});
     go(0);
   })();
+
+  /* ── CARRUSEL HOSPEDAJE ── */
+  (function(){
+    var track=document.getElementById('hospTrack');
+    if(!track)return;
+    var slides=track.children.length;
+    var dots=document.querySelectorAll('#hospDots button');
+    var idx=0;
+    function go(i){
+      idx=(i+slides)%slides;
+      track.style.transform='translateX('+(-idx*100)+'%)';
+      dots.forEach(function(d,k){d.classList.toggle('active',k===idx);});
+    }
+    var prev=document.querySelector('.hosp-arrow.prev');
+    var next=document.querySelector('.hosp-arrow.next');
+    if(prev)prev.addEventListener('click',function(){go(idx-1);});
+    if(next)next.addEventListener('click',function(){go(idx+1);});
+    dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);});});
+    var sx=0,sy=0;
+    track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      var dx=e.changedTouches[0].clientX-sx;
+      var dy=e.changedTouches[0].clientY-sy;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?idx+1:idx-1);}
+    },{passive:true});
+    go(0);
+  })();
+
+  /* ── CARRUSEL FOTOS (Nuestra Historia) con título fade ── */
+  (function(){
+    var track=document.getElementById('fotosTrack');
+    if(!track)return;
+    var slides=track.children.length;
+    var titulos=['Primer encuentro','Nuestro primer Sí','La propuesta','Dos almas, un destino'];
+    var dots=document.querySelectorAll('#fotosDots button');
+    var titEl=document.getElementById('fotosTitulo');
+    var idx=0;
+    function go(i){
+      idx=(i+slides)%slides;
+      track.style.transform='translateX('+(-idx*100)+'%)';
+      dots.forEach(function(d,k){d.classList.toggle('active',k===idx);});
+      if(titEl){
+        titEl.style.opacity='0';
+        setTimeout(function(){titEl.textContent=titulos[idx]||'';titEl.style.opacity='1';},250);
+      }
+    }
+    var prev=document.querySelector('.fotos-arrow.prev');
+    var next=document.querySelector('.fotos-arrow.next');
+    if(prev)prev.addEventListener('click',function(){go(idx-1);});
+    if(next)next.addEventListener('click',function(){go(idx+1);});
+    dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);});});
+    var sx=0,sy=0;
+    track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      var dx=e.changedTouches[0].clientX-sx;
+      var dy=e.changedTouches[0].clientY-sy;
+      if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?idx+1:idx-1);}
+    },{passive:true});
+    if(titEl)titEl.textContent=titulos[0];
+  })();
+
+  /* ── SOBRE INTERACTIVO (Lluvia de Sobres) ── */
+  document.querySelectorAll('.gift-envelope').forEach(function(env){
+    function toggle(){var open=env.classList.toggle('open');env.setAttribute('aria-expanded',open?'true':'false');}
+    env.addEventListener('pointerdown',function(e){e.preventDefault();toggle();});
+    env.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  });
 
   const scrollHint=document.getElementById('scrollHint');
   if(scrollHint){
